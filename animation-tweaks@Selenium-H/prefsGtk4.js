@@ -1287,14 +1287,8 @@ const PrefsWindowForAction_AnimationTweaksExtension = new GObject.Class({
     this.prefsWindowOpening.set_min_content_height(700);
     const cssProvider = new Gtk.CssProvider();
     //cssProvider.load_from_data('notebook > stack { background-color: rgba(0,0,0,0.0); }');  // Does not work for Gtk-4.
-    GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
-        const cssProvider = new Gtk.CssProvider();
-        const css = 'notebook > stack { background-color: rgba(0,0,0,0.0); }';
-        cssProvider.loadFromData(css);
-        // ...
-    });
     const css = 'notebook > stack { background-color: rgba(0,0,0,0.0); }';
-    cssProvider.loadFromData(css);
+    cssProvider.load_from_data(css);
     this.get_style_context().add_provider(cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     
     if(!toBeGrouped) {
