@@ -1286,7 +1286,9 @@ const PrefsWindowForAction_AnimationTweaksExtension = new GObject.Class({
     this.prefsWindowOpening = new Gtk.ScrolledWindow({hexpand: true });
     this.prefsWindowOpening.set_min_content_height(700);
     const cssProvider = new Gtk.CssProvider();
-    cssProvider.load_from_data('notebook > stack { background-color: rgba(0,0,0,0.0); }');  // Does not work for Gtk-4.
+    //cssProvider.load_from_data('notebook > stack { background-color: rgba(0,0,0,0.0); }');  // Does not work for Gtk-4.
+    const css = 'notebook > stack { background-color: rgba(0,0,0,0.0); }';
+    cssProvider.loadFromData(css);
     this.get_style_context().add_provider(cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     
     if(!toBeGrouped) {
