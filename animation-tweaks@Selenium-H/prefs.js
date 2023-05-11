@@ -18,7 +18,7 @@ function init() {
 
 function buildPrefsWidget() {
 
-  let prefsProgram = (GNOME_VERSION >= "40") ? Extension.imports.prefsGtk4 : Extension.imports.prefsGtk3;
+  let prefsProgram = (GNOME_VERSION >= "40") ? Extension.imports.prefsGtk3 : Extension.imports.prefsGtk3;
   prefsProgram.init();
   let widget = new prefsProgram.Prefs_AnimationTweaksExtension();   
   GLib.timeout_add(GLib.PRIORITY_DEFAULT, 0, ()=> {    
